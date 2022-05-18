@@ -63,7 +63,7 @@ function App (){
   }, [query])
 
   return (
-  <div className="App"> 
+  <div className="App wrapper"> 
     <header>
       <h1>Burn Book</h1>
     </header>

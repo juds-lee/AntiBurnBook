@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+/* base styles */
 
 @font-face {
   font-family: "ransom note";
@@ -11,6 +12,12 @@ h1 {
   font-family: "ransom note", sans-serif;
   font-size: 3rem;
 }
+
 li {
   list-style: none;
+}
+
+.wrapper {
+  width: 95%;
+  margin: 0 auto;
 }
