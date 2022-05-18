@@ -2,8 +2,6 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import database from './firebase';
 import { onValue, ref, push } from 'firebase/database';
-import { render } from '@testing-library/react';
-
 
 function App (){
   const apiKey =  "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"
@@ -19,8 +17,6 @@ function App (){
     frequency_penalty: 0,
     presence_penalty: 0
   } 
-
-
 
   const handleAISubmit = (e) => {
     e.preventDefault()
@@ -46,7 +42,7 @@ function App (){
     })
   }
 
-   useEffect(() => {
+  useEffect(() => {
      renderData()
   }, [])
 
@@ -67,11 +63,6 @@ function App (){
     })
   }, [query])
 
-	useEffect(() => {
-
-
-	}, []);
-    
   return (
   <div className="App"> 
     <header><h1>Burn Book</h1></header>
