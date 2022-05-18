@@ -1,8 +1,11 @@
+
 .App {
   text-align: center;
+  background-color: rgb(245, 160, 174);
+  height: 100vh;
 }
-/* base styles */
 
+/* base styles */
 @font-face {
   font-family: "ransom note";
   src: url(../public/ransom.ttf);
@@ -20,4 +23,8 @@ li {
 .wrapper {
   width: 95%;
   margin: 0 auto;
+}
+
+p {
+
 }
