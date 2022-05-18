@@ -4,7 +4,6 @@ import database from './firebase';
 import { onValue, ref, push } from 'firebase/database';
 
 function App (){
-  const apiKey =  "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"
   const [ text, setText] = useState([]);
   const [ query, setQuery] = useState("");
   const [ message, setMessage] = useState([]);
@@ -51,7 +50,7 @@ function App (){
       method: "POST",
       headers: {
         'Content-Type':  "application/json",
-        Authorization: `Bearer ${apiKey}`
+        Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
           },
       body: JSON.stringify(data)
     })
@@ -65,7 +64,12 @@ function App (){
 
   return (
   <div className="App"> 
-    <header><h1>Burn Book</h1></header>
+    <header>
+      <h1>Burn Book</h1>
+    </header>
+    <div>
+      <p></p>
+    </div>
       <form className="generateAI" onSubmit={handleAISubmit}>
           <label htmlFor='query'></label>
           <input
@@ -75,7 +79,7 @@ function App (){
           />
           <button type='submit'>Submit</button>
       </form>
-      <div>
+      <div className='aiMessageForm'>
        <form className="aiText" onSubmit={handleSaveMessage}>
           <label htmlFor='aiText'></label>
           <input
@@ -87,14 +91,13 @@ function App (){
           <button type='submit'>Save</button>
       </form>
       </div>
-      <div>
+      <div className='arrayOfMessage'>
         <ul>
-        {message.map((item) => {
-          return (
-            <li>{item.savedMessage}</li>
-          )
-        })
-
+          {message.map((item, id) => {
+            return (
+              <li key={id} className='message'>{item.savedMessage}</li>
+            )
+          })
         }
         </ul>
       </div>
