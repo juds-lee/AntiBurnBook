@@ -7,7 +7,7 @@ function App (){
   const [ text, setText] = useState([]);
   const [ query, setQuery] = useState("");
   const [ message, setMessage] = useState([]);
-  const data = {
+  const aiData = {
     prompt: `write a fiercely positive message that includes the persons ${query}.`,
     temperature: 0.9,
     max_tokens: 256,
@@ -52,7 +52,7 @@ function App (){
         'Content-Type':  "application/json",
        Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
           },
-      body: JSON.stringify(data)
+      body: JSON.stringify(aiData)
     })
       .then((res) => res.json())
       .then((resJson) => {
