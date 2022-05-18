@@ -8,7 +8,6 @@ function App (){
   const [ text, setText] = useState([]);
   const [ query, setQuery] = useState("");
   const [ message, setMessage] = useState([]);
-  const  messageArray = [];
   const data = {
     prompt: `write a fiercely positive message that includes the persons ${query}.`,
     temperature: 0.9,
@@ -35,6 +34,7 @@ function App (){
   const renderData = () => {
     onValue(ref(database), (data) => {
       const dataObject = data.val()
+      const  messageArray = [];
       for (let message in dataObject) {
         messageArray.push(dataObject[message])
         setMessage(messageArray)
