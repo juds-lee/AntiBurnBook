@@ -60,7 +60,7 @@ function App (){
       setText(text)
       console.log(text)
     })
-  }, [query])
+  }, [query]);
 
   return (
   <div className="App"> 
