@@ -81,7 +81,6 @@ function App (){
           <input
             type='text'
             id='aiText'
-            placeholder='Who would you like to message a letter about?'
             value= {text}
             readOnly
           />
