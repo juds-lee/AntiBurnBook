@@ -16,14 +16,14 @@ function App (){
      {name.length <= 2 ? alert('please put in a name') 
     :  
     handleAPICall();
-    }
-  }
+    };
+  };
   // function to name Input
   const handleNameInput = (e) => {
     e.preventDefault()
     console.log(e.target.value)
     setName(e.target.value)
-  }
+  };
 
   // function to handle message save button and push to firebase
   const handleSaveMessage = (e) => {
@@ -35,8 +35,8 @@ function App (){
     renderData();
     setText("");
     setName("");
-    }
-  }
+    };
+  };
   // function to render data pulled from firebase
   const renderData = () => {
     onValue(ref(database), (data) => {
@@ -46,12 +46,12 @@ function App (){
         setMessage(messageArray);
       }
     })
-  }
+  };
   
   // useEffect to render messages on page load
   useEffect(() => {
      renderData();
-  }, [])
+  }, []);
 
   // useEffect to fetch API calls on submit with query
   const handleAPICall = () => {
@@ -75,8 +75,8 @@ function App (){
     .then((resJson) => {
     let text = resJson.choices[0].text;
     setText(text);
-    })
-  }
+    });
+  };
 
   return (
   <div className="App"> 
@@ -113,6 +113,7 @@ function App (){
         </div>
         <div className='arrayOfMessages wrapper'>
           <ul>
+            {/* sort from newest to oldest */}
             {message.slice(0).reverse().map((item, id) => {
               return (
                 <li 
